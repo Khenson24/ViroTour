@@ -9,6 +9,7 @@
 
 import React, { Component } from 'react';
 import {
+  Image,
   AppRegistry,
   Text,
   View,
@@ -31,11 +32,9 @@ var sharedProps = {
 // Sets the default scene you want for AR and VR
 var InitialARScene = require('../js/HelloWorldSceneAR');
 var CivilRightsARScene = require('../js/CivilRights');
-var RailroadARScene = require('../js/RailroadParkScene');
 
 var UNSET = "UNSET";
 var CivilRightsAR_NAVIGATOR_TYPE = "CR";
-var RailroadAR_NAVIGATOR_TYPE = "RR";
 var AR_NAVIGATOR_TYPE = "AR";
 
 // This determines which type of experience to launch in, or UNSET, if the user should
@@ -53,7 +52,6 @@ export default class ViroSample extends Component {
     this._getExperienceSelector = this._getExperienceSelector.bind(this);
     this._getARNavigator = this._getARNavigator.bind(this);
     this._getCivilNavigator = this._getCivilNavigator.bind(this);
-    this._getRailroadNavigator = this._getRailroadNavigator.bind(this);
     this._getExperienceButtonOnPress = this._getExperienceButtonOnPress.bind(this);
     this._exitViro = this._exitViro.bind(this);
   }
@@ -81,26 +79,20 @@ export default class ViroSample extends Component {
           <Text style={localStyles.titleText}>
             Choose your desired experience:
           </Text>
-
-          <TouchableHighlight style={localStyles.buttons}
-            onPress={this._getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
-            underlayColor={'#68a0ff'} >
-
-            <Text style={localStyles.buttonText}>Innovation Depot</Text>
+          <TouchableHighlight onPress={this._getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
+            underlayColor={'#68a0ff'}>
+          <Image 
+          source={require('../js/res/InnovateButton.png')}
+          style={localStyles.buttons1}
+             />
           </TouchableHighlight>
-
-          <TouchableHighlight style={localStyles.buttons}
-            onPress={this._getExperienceButtonOnPress(CivilRightsAR_NAVIGATOR_TYPE)}
-            underlayColor={'#68a0ff'} >
-
-            <Text style={localStyles.buttonText}>Civil Rights Tour</Text>
-          </TouchableHighlight>
-          <TouchableHighlight style={localStyles.buttons}
-            onPress={this._getExperienceButtonOnPress(RailroadAR_NAVIGATOR_TYPE)}
-            underlayColor={'#68a0ff'} >
-
-            <Text style={localStyles.buttonText}>Railroad Park Tour</Text>
-          </TouchableHighlight>                     
+          <TouchableHighlight onPress={this._getExperienceButtonOnPress(CivilRightsAR_NAVIGATOR_TYPE)}
+            underlayColor={'#68a0ff'}>
+          <Image 
+          source={require('../js/res/Slice1.png')}
+          style={localStyles.buttons1}
+             />
+          </TouchableHighlight>                 
         </View>
       </View>
     );
@@ -114,14 +106,9 @@ export default class ViroSample extends Component {
     );
   }
 
-  _getRailroadNavigator() {
-    return (
-      <ViroARSceneNavigator {...this.state.sharedProps}
-        initialScene={{scene: RailroadARScene}} />
-    );
-  }
+
   
-  // Returns the ViroSceneNavigator which will start the VR experience
+  // Returns the ViroARSceneNavigator which will start the Civil Rights Tour experience
   _getCivilNavigator() {
     return (
       <ViroARSceneNavigator {...this.state.sharedProps}
@@ -188,6 +175,17 @@ var localStyles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     borderColor: '#fff',
+  },
+  buttons1 : {
+    height: 80,
+    width: 250,
+    paddingTop:20,
+    paddingBottom:20,
+    marginTop: 10,
+    marginBottom: 10,
+    backgroundColor:'#68a0cf',
+    borderRadius: 10,
+    borderWidth: 1
   },
   exitButton : {
     height: 50,

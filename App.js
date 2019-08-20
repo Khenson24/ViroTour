@@ -1,19 +1,19 @@
 import React from 'react';
-import { createMaterialTopTabNavigator, createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createMaterialTopTabNavigator, createBottomTabNavigator, createAppContainer, createSwitchNavigator } from 'react-navigation';
 
 import ViroSample from './screens/Tour1';
 import SplashScreen from './screens/Splash';
 import Home from './screens/Home';
 
-import Icon from 'react-native-vector-icons/FontAwesome'
+import Icon from 'react-native-vector-icons/FontAwesome5'
 
-const TabNavigator = createMaterialTopTabNavigator({
+const TabNavigator = createBottomTabNavigator({
   Home: {
     screen: Home,
 
     navigationOptions: {
       tabBarIcon: ({ tintColor }) => (
-        <Icon name="home" size={30} color="#900" />
+        <Icon name="home" size={20} color="#900" />
       )
     }
   },
@@ -32,14 +32,14 @@ const TabNavigator = createMaterialTopTabNavigator({
     activeTintColor: "white",
     inactiveTintColor: "gray",
     style: {
-      top: 20,
-      paddingVertical: 10,
+      // top: 20,
+      paddingVertical: 5,
       backgroundColor: "red",
       border: "blue"
     },
     labelStyle: {
       fontSize: 12,
-      lineHeight: 16,
+      lineHeight: 10,
       textDecorationColor: 'white'
     },
     tabBarPosition: 'bottom',
