@@ -2,9 +2,6 @@
 #
 .DS_Store
 
-## Using Git LFS for this. Do not push to repo.
-ios/Pods/GVRSDK/Libraries/
-
 # Xcode
 #
 build/
