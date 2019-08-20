@@ -2,6 +2,8 @@
 #
 .DS_Store
 
+ios/Pods/GVRSDK/Libraries/libGVRSDK.a
+
 # Xcode
 #
 build/
